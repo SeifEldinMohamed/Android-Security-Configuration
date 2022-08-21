@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config xmlns:android="http://schemas.android.com/apk/res/android">
+    <base-config cleartextTrafficPermitted="false" >
+    </base-config>
+</network-security-config>
+
+<!--
+Cleartext is any transmitted or stored information that is not encrypted or meant to be encrypted.
+هي أي معلومات مرسلة أو مخزنة غير مشفرة أو من المفترض أن تكون مشفرة.
+
+When an app communicates with servers using a cleartext network traffic, such as HTTP,
+it could raise a risk of eavesdropping( التنصت ) and tampering( تلاعب ) of content.
+
+Note: Starting with Android 9 (API level 28), cleartext support is disabled by default.
+-->
