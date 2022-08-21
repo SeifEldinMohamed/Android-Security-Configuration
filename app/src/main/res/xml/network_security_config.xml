@@ -2,6 +2,10 @@
 <network-security-config xmlns:android="http://schemas.android.com/apk/res/android">
     <base-config cleartextTrafficPermitted="false" >
     </base-config>
+
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">localhost</domain>
+    </domain-config>
 </network-security-config>
 
 <!--
@@ -12,4 +16,23 @@ When an app communicates with servers using a cleartext network traffic, such as
 it could raise a risk of eavesdropping( التنصت ) and tampering( تلاعب ) of content.
 
 Note: Starting with Android 9 (API level 28), cleartext support is disabled by default.
+
+
+You can override this configuration for specific destinations by specifying a domain-config element.
+A domain-config declares configuration options for a specific set of domains.
+Here, the base configuration prevents cleartext traffic for all domains. But the domain configuration overrides that rule,
+allowing the app to access localhost using cleartext.
+
+It is strongly recommended to not allow cleartext traffic by default, using a list to specify hosts or domains
+ that should require encryption. Instead, always disable cleartext traffic by default,
+ and only enable it for specific domains if your configuration absolutely requires it.
+
+ WARNING:
+
+In this step, we have only verified that the app can access the local web server.
+At this point the app is still not secure!
+
+In the next step, we will enable HTTPS on the web server and configure a certificate for the app.
+
+
 -->
