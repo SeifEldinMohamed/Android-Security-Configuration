@@ -63,4 +63,21 @@ When you install a certificate from a PKCS#12 key store, Android also installs a
 
 Custom trust anchors: Customize which Certificate Authorities (CA) are trusted for an app's secure connections. For example,
 trusting particular self-signed certificates or restricting the set of public CAs that the app trusts.
+
+
+
+SSL	                                                                TLS
+
+SSL stands for “Secure Socket Layer.”	                            TLS stands for “Transport Layer Security.”
+Netscape developed the first version of SSL in 1995.	            The first version of TLS was developed by the Internet
+                                                                    Engineering Taskforce (IETF) in 1999.
+SSL is a cryptographic protocol that
+uses explicit connections to establish secure                       TLS is also a cryptographic protocol that provides secure communication between
+communication between web server and client.	                    web server and client via implicit connections. It’s the successor of SSL protocol.
+
+Three versions of SSL have been                                     Four versions of TLS have been
+released: SSL 1.0, 2.0, and 3.0.	                                released: TLS 1.0, 1.1, 1.2, and 1.3.
+
+All versions of SSL have been found vulnerable,                     TLS 1.0 and 1.1 have been “broken” and are deprecated as of March 2020.
+ and they all have been deprecated.                         	    TLS 1.2 is the most widely deployed protocol version.
 -->
