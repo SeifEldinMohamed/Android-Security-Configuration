@@ -34,5 +34,33 @@ At this point the app is still not secure!
 
 In the next step, we will enable HTTPS on the web server and configure a certificate for the app.
 
+Instead of adding a blanket use of allowing cleartext traffic for this use case or
+modifying the code, the debug-override option in the Network Security Configuration allows
+you to set security options that only apply when the application is run in debug mode; that is,
+when android:debuggable is true. This is significantly safer than using conditional code
+because of its explicit debug-only definition. The Play Store also prevents debuggable apps
+from being uploaded, making this option even safer.
 
+
+Android allows you install additional certificates from files you received someone else or you generated from some tools.
+But those certificate files must be in one of the following formats:
+
+1. Android supports DER-encoded X.509 certificates, saved in files with a .crt or .cer file extension.
+   If your certificate file has a .der or other extension, you must change or convert it to .crt or .cer or you won't be able to install it.
+
+2. Android also supports X.509 certificates saved in PKCS#12 key store files with a .p12 or .pfx extension.
+   If your key store has some other extension, you must change or convert it to .p12 or .pfx or you won't be able to install it.
+
+        <debug-overrides>
+             <trust-anchors>
+           comment: Trust a debug certificate in addition to the system certificates
+                 <certificates src="system" />
+                 <certificates src="@raw/debug_certificate" />
+             </trust-anchors>
+
+When you install a certificate from a PKCS#12 key store, Android also installs any accompanying private key or certificate authority certificates.
+
+
+Custom trust anchors: Customize which Certificate Authorities (CA) are trusted for an app's secure connections. For example,
+trusting particular self-signed certificates or restricting the set of public CAs that the app trusts.
 -->
